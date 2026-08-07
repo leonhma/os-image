@@ -1,6 +1,6 @@
 FROM ghcr.io/ublue-os/silverblue-main:latest
 
-RUN curl https://mise.run | sh
+# RUN curl https://mise.run | sh
 
 RUN dnf install -y $(cat root-packages.txt)
 
