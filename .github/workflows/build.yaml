@@ -15,8 +15,8 @@ jobs:
       - name: build
         run: |
           podman build --tag "ghcr.io/${{ github.repository }}:${{ github.sha }}" \
-            --cache-from "ghcr.io/${{ github.repository }}:cache" \
-            --cache-to "ghcr.io/${{ github.repository }}:cache" \
+            --cache-from "ghcr.io/${{ github.repository }}" \
+            --cache-to "ghcr.io/${{ github.repository }}" \
             --tag "ghcr.io/${{ github.repository }}:latest" \
             --label "org.opencontainers.image.revision=${{ github.sha }}" \
             --label "org.opencontainers.image.source=https://github.com/${{ github.repository }}" \
