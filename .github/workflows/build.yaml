@@ -1,4 +1,4 @@
-name: Build and Push to GHCR
+name: build new image
 on:
   push:
     branches: [master]
@@ -10,9 +10,13 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v3
-      - name: Login to GHCR
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-      - name: Build and push
+      - name: login to ghcr.io
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
+      - name: build
         run: |
-          docker build -t ghcr.io/${{ github.repository }}:${{ github.sha }} .
-          docker push ghcr.io/${{ github.repository }}:${{ github.sha }}
+          podman build -t "ghcr.io/${{ github.repository }}:${{ github.sha }}" \
+            -t "ghcr.io/${{ github.repository }}:latest" \
+            -l "org.opencontainers.image.revision=${{ github.sha }}" \
+            -l "org.opencontainers.image.source=https://github.com/${{ github.repository }}" \
+            -l "org.opencontainers.image.created=$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            .
