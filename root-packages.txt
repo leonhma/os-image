@@ -1,0 +1,6 @@
+git
+zsh
+chezmoi
+rio
+helix
+jetbrains-mono-fonts
