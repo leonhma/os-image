@@ -1,3 +1,7 @@
+greetd
+cage
+gtkgreet
+uwsm
 git
 zsh
 chezmoi
