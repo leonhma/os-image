@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=River (UWSM)
+Comment=My cool compositor, UWSM session
+
+# a reference to another entry (preferred since some DMs may fail on quoted arguments)
+Exec=uwsm start -- river
+
+# invalidates entry if uwsm is missing
+TryExec=uwsm
+
+DesktopNames=river
+Type=Application
