@@ -10,22 +10,18 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v3
-      - name: cache
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.local/share/containers
-            ~/.config/containers
+      - name: login
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
       - name: build
         run: |
           podman build --tag "ghcr.io/${{ github.repository }}:${{ github.sha }}" \
+            --cache-from "ghcr.io/${{ github.repository }}:cache" \
+            --cache-to "ghcr.io/${{ github.repository }}:cache" \
             --tag "ghcr.io/${{ github.repository }}:latest" \
             --label "org.opencontainers.image.revision=${{ github.sha }}" \
             --label "org.opencontainers.image.source=https://github.com/${{ github.repository }}" \
             --label "org.opencontainers.image.created=$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
             .
-      - name: login
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
       - name: push
         run: |
           podman push "ghcr.io/${{ github.repository }}:${{ github.sha }}"
