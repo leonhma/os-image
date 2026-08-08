@@ -1,7 +1,5 @@
 FROM ghcr.io/ublue-os/silverblue-main:latest
 
-RUN useradd -M -r -s /sbin/nologin greeter
-
 # RUN curl https://mise.run | sh
 RUN dnf copr enable alebastr/river && dnf install -y  river
 
