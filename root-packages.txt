@@ -1,6 +1,7 @@
 greetd
 cage
 gtkgreet
+tuigreet
 git
 zsh
 chezmoi
