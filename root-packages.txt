@@ -1,8 +1,4 @@
-greetd
-cage
-gtkgreet
 dbus-daemon
-tuigreet
 git
 zsh
 chezmoi
