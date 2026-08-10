@@ -1,6 +1,7 @@
 FROM ghcr.io/ublue-os/silverblue-main:latest
 
-# RUN curl https://mise.run | sh
+RUN dnf install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+RUN dnf install rio
 # RUN dnf copr enable alebastr/river && dnf install -y  river
 
 COPY root-packages.txt .
