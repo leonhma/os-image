@@ -1,6 +1,7 @@
 FROM ghcr.io/ublue-os/silverblue-main:latest
 
 RUN dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+RUN dnf config-manager --add-repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 RUN dnf install -y rio
 # RUN dnf copr enable alebastr/river && dnf install -y  river
 

@@ -1,4 +1,5 @@
 git
+tailscale
 zsh
 chezmoi
 helix
