@@ -5,3 +5,4 @@ helix
 jetbrains-mono-fonts
 openssl-devel
 pkgconf-pkg-config
+fontconfig-devel
