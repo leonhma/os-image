@@ -8,3 +8,11 @@ pkgconf-pkg-config
 fontconfig-devel
 openssl-devel
 lz4-devel
+cmake
+ninja-build
+gcc
+gcc-c++
+pkgconf
+wine-devel
+pipewire-devel
+qt6-qtbase-devel
