@@ -4,6 +4,7 @@ zsh
 chezmoi
 helix
 jetbrains-mono-fonts
-openssl-devel
 pkgconf-pkg-config
 fontconfig-devel
+openssl-devel
+lz4-devel
